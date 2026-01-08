@@ -1,0 +1,10 @@
+CREATE TABLE colaborador (
+    pkColaborador SERIAL PRIMARY KEY,
+     nome VARCHAR(150) NOT NULL,
+     email VARCHAR(150) NOT NULL UNIQUE,
+     data_nascimento DATE NOT NULL,
+     data_admissao DATE NOT NULL,
+     ativo BOOLEAN NOT NULL DEFAULT TRUE,
+     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
