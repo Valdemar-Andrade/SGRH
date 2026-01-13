@@ -1,15 +1,19 @@
 package com.sgrh.rh.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Colaborador {
-
-    public Colaborador() {
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +25,19 @@ public class Colaborador {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(nullable = false, unique = true)
+    private String cpf;
+
     private LocalDate dataNascimento;
 
     @Column(name = "data_admissao", nullable = false)
     private LocalDate dataAdmissao;
+
+    @Column(nullable = false)
+    private String cargo;
+
+    @Column(nullable = false)
+    private BigDecimal salario;
 
     @Column(nullable = false)
     private Boolean ativo = true;
@@ -98,6 +110,30 @@ public class Colaborador {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
     }
 
     @PrePersist

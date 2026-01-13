@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleRuntime(RuntimeException ex) {
-        log.error("Erro inesperado", ex);
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("Erro interno do servidor");
-    }
-
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<String> handleBusiness(BusinessException ex) {
         log.warn("Erro de negócio: {}", ex.getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleRuntime(RuntimeException ex) {
+        log.error("Erro inesperado", ex);
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Erro interno do servidor");
     }
 }

@@ -1,9 +1,9 @@
 package com.sgrh.rh.service.interfaces;
 
-import com.sgrh.rh.dto.request.ColaboradorCreateRequest;
-import com.sgrh.rh.dto.response.ColaboradorResponse;
+import com.sgrh.rh.dto.request.ColaboradorRequestDTO;
+import com.sgrh.rh.dto.response.ColaboradorResponseDTO;
 
 public interface ColaboradorService {
 
-    ColaboradorResponse criar(ColaboradorCreateRequest request);
+    ColaboradorResponseDTO criar(ColaboradorRequestDTO request);
 }
