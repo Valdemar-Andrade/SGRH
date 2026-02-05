@@ -87,7 +87,7 @@ Camada de Persistência (Repositories)
 ```
 ---
 
-## Endpoints Principais (exemplos)
+## Endpoints Principais
 # Colaborador
  - `POST /api/colaboradores` → criar colaborador
  - `GET /api/colaboradores` → listar todos
